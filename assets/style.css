@@ -1,0 +1,446 @@
+/* LESCO Bill Check — shared stylesheet (all pages)
+   Clean, fast, professional, mobile-first. No frameworks, no web fonts. */
+
+:root {
+  --green: #0b6e4f;
+  --green-dark: #08573f;
+  --green-light: #e6f4ee;
+  --ink: #1a2a24;
+  --muted: #5a6b63;
+  --border: #d9e2dc;
+  --bg: #f7f9f8;
+  --card: #ffffff;
+  --amber-bg: #fff8e6;
+  --amber-border: #e8c96a;
+  --blue-bg: #eef4fb;
+  --radius: 10px;
+  --max: 860px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+a { color: var(--green); }
+a:hover { text-decoration: underline; }
+
+h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 .5rem; }
+h2 { font-size: 1.3rem; line-height: 1.3; margin: 2rem 0 .6rem; padding-top: .4rem; border-top: 1px solid var(--border); }
+h3 { font-size: 1.1rem; margin: 1.4rem 0 .4rem; }
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+li { margin-bottom: .35rem; }
+
+/* ---- Header / nav ---- */
+.site-header {
+  background: var(--green);
+  color: #fff;
+}
+.site-header .wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: .9rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem 1rem;
+}
+.site-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  margin-right: auto;
+}
+.site-title:hover { text-decoration: none; }
+.main-nav { display: flex; flex-wrap: wrap; gap: .2rem .9rem; }
+.main-nav a {
+  color: #d9efe4;
+  text-decoration: none;
+  font-size: .95rem;
+}
+.main-nav a:hover, .main-nav a[aria-current="page"] { color: #fff; text-decoration: underline; }
+
+/* ---- Layout ---- */
+.wrap, main.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+}
+.lead { font-size: 1.08rem; color: #33463d; }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: .75rem 1.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+.btn:hover { background: var(--green-dark); text-decoration: none; }
+.btn-secondary {
+  background: #fff;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+.btn-secondary:hover { background: var(--green-light); }
+.btn-block { display: block; width: 100%; }
+
+/* ---- Checker box ---- */
+.checker-box {
+  background: var(--card);
+  border: 2px solid var(--green);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+.checker-box h2 { border: 0; margin: 0 0 .4rem; padding: 0; }
+.checker-box label { display: block; font-weight: 700; margin: .8rem 0 .3rem; }
+.checker-box input[type="text"],
+.checker-box input[type="tel"],
+.checker-box select {
+  width: 100%;
+  padding: .7rem .8rem;
+  font-size: 1.1rem;
+  border: 1.5px solid #9aa8a1;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+.checker-box input:focus, .checker-box select:focus {
+  outline: 3px solid #bfe3d2;
+  border-color: var(--green);
+}
+.checker-row { display: flex; gap: .8rem; flex-wrap: wrap; }
+.checker-row .field-ref { flex: 1 1 220px; }
+.checker-row .field-ur { flex: 0 0 130px; }
+.checker-note { font-size: .92rem; color: var(--muted); margin: .7rem 0 0; }
+.checker-error {
+  display: none;
+  background: #fdecea;
+  border: 1px solid #e0a19a;
+  border-radius: 8px;
+  padding: .6rem .8rem;
+  margin-top: .8rem;
+  font-size: .95rem;
+}
+.checker-error.show { display: block; }
+.ref-hint { font-size: .92rem; color: var(--muted); }
+
+/* ---- Trust line / stamp ---- */
+.trust-line {
+  font-size: .95rem;
+  color: var(--muted);
+  margin: .6rem 0 0;
+}
+.stamp {
+  display: inline-block;
+  background: var(--green-light);
+  border: 1px solid #bcdccb;
+  border-radius: 999px;
+  padding: .25rem .8rem;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+
+/* ---- Callout / tip ---- */
+.callout {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  border-left: 5px solid #c9a227;
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  margin: 1.25rem 0;
+}
+.callout p:last-child { margin-bottom: 0; }
+.tip {
+  background: var(--blue-bg);
+  border: 1px solid #c3d6ea;
+  border-left: 5px solid #2f6fb2;
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  margin: 1.25rem 0;
+}
+.tip p:last-child { margin-bottom: 0; }
+
+/* ---- Steps ---- */
+.steps { counter-reset: step; list-style: none; padding: 0; }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.6rem;
+  margin-bottom: .9rem;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.8rem; height: 1.8rem;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  font-size: .95rem;
+  line-height: 1.8rem;
+  text-align: center;
+}
+
+/* ---- Payment strip ---- */
+.pay-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0 1rem;
+}
+.pay-strip li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .35rem .9rem;
+  font-size: .95rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ---- Tables ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1rem;
+  font-size: .98rem;
+  background: var(--card);
+}
+th, td {
+  text-align: left;
+  padding: .6rem .7rem;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+th { background: var(--green-light); }
+
+/* ---- FAQ ---- */
+.faq { margin: 0 0 1rem; }
+.faq details {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  margin-bottom: .6rem;
+}
+.faq summary { font-weight: 700; cursor: pointer; }
+.faq summary:hover { color: var(--green); }
+.faq p:last-child { margin-bottom: 0; }
+
+/* ---- Related / internal links ---- */
+.related-links { list-style: none; padding: 0; }
+.related-links li { margin-bottom: .5rem; }
+
+/* ---- Trust badges ---- */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem;
+}
+.badges li {
+  background: var(--green-light);
+  border: 1px solid var(--green);
+  color: var(--green-dark);
+  font-size: .9rem;
+  font-weight: 600;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  margin: 0;
+}
+
+/* ---- Calculator ---- */
+.calc {
+  background: var(--card);
+  border: 2px solid var(--green);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+.calc h3 { margin-top: 0; }
+.calc input[type="range"] { width: 100%; accent-color: var(--green); }
+.calc-output { font-weight: 700; margin-top: .5rem; }
+.calc-note { font-size: .9rem; color: var(--muted); }
+.digit-counter { font-size: .92rem; font-weight: 700; color: var(--green-dark); margin: .4rem 0 0; }
+
+/* ---- Example cases ---- */
+.example-label {
+  display: inline-block;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  color: #7a5c00;
+  font-weight: 700;
+  font-size: .85rem;
+  padding: .2rem .55rem;
+  border-radius: 6px;
+  margin-bottom: .5rem;
+}
+tr.ours td { background: var(--green-light); }
+
+/* ---- Tables on small screens ---- */
+.table-wrap { overflow-x: auto; }
+
+/* ---- District list ---- */
+.districts { columns: 2; column-gap: 1.5rem; }
+.districts li { break-inside: avoid; }
+@media (min-width: 640px) {
+  .districts { columns: 3; }
+}
+
+/* ---- Quick answers ---- */
+.quick-answers { list-style: none; padding-left: 0; }
+.quick-answers li { margin-bottom: .7rem; padding-left: 1.3rem; position: relative; }
+.quick-answers li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+
+/* ---- Footer ---- */
+.site-footer {
+  background: #eef2ef;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: .92rem;
+}
+.site-footer .wrap { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.site-footer a { color: var(--green-dark); }
+
+@media (min-width: 640px) {
+  h1 { font-size: 2rem; }
+  .checker-box { padding: 1.5rem; }
+}
+
+/* ---- Bijli Baji chatbot widget ---- */
+.bb-widget { position: fixed; right: 1rem; bottom: 1rem; z-index: 100; }
+.bb-button {
+  display: block;
+  width: 60px; height: 60px;
+  padding: 0;
+  border: 3px solid var(--green);
+  border-radius: 50%;
+  background: var(--card);
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25);
+}
+.bb-button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bb-button:hover { border-color: var(--green-dark); }
+.bb-panel {
+  position: fixed;
+  right: 1rem; bottom: 5rem;
+  width: min(340px, calc(100vw - 2rem));
+  max-height: min(480px, calc(100vh - 7rem));
+  display: flex; flex-direction: column;
+  background: var(--card);
+  border: 2px solid var(--green);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 28px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+.bb-panel[hidden] { display: none; }
+.bb-header {
+  display: flex; align-items: center; gap: .6rem;
+  background: var(--green); color: #fff;
+  padding: .6rem .8rem;
+}
+.bb-header img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; }
+.bb-header strong { display: block; font-size: 1rem; line-height: 1.2; }
+.bb-header span { display: block; font-size: .82rem; color: #d9efe4; }
+.bb-close {
+  margin-left: auto;
+  background: transparent; border: 0; color: #fff;
+  font-size: 1.5rem; line-height: 1; cursor: pointer; padding: .2rem .4rem;
+}
+.bb-messages {
+  flex: 1; overflow-y: auto;
+  padding: .8rem;
+  background: var(--bg);
+  font-size: .95rem;
+}
+.bb-msg {
+  max-width: 88%;
+  padding: .55rem .75rem;
+  border-radius: 10px;
+  margin-bottom: .55rem;
+  line-height: 1.5;
+}
+.bb-bot { background: var(--card); border: 1px solid var(--border); margin-right: auto; }
+.bb-user { background: var(--green-light); border: 1px solid #bcdccb; margin-left: auto; }
+.bb-quick {
+  display: flex; flex-wrap: wrap; gap: .4rem;
+  padding: .6rem .8rem;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+.bb-chip {
+  background: #fff; color: var(--green);
+  border: 1.5px solid var(--green);
+  border-radius: 999px;
+  padding: .3rem .7rem;
+  font-size: .85rem; font-weight: 600;
+  cursor: pointer;
+}
+.bb-chip:hover { background: var(--green-light); }
+.bb-form { display: flex; gap: .5rem; padding: .6rem .8rem; border-top: 1px solid var(--border); background: var(--card); }
+.bb-form input {
+  flex: 1; min-width: 0;
+  padding: .55rem .7rem;
+  font-size: .95rem;
+  border: 1.5px solid #9aa8a1;
+  border-radius: 8px;
+}
+.bb-form input:focus { outline: 3px solid #bfe3d2; border-color: var(--green); }
+.bb-form button {
+  background: var(--green); color: #fff;
+  border: 0; border-radius: 8px;
+  padding: .55rem .9rem;
+  font-size: .95rem; font-weight: 700;
+  cursor: pointer;
+}
+.bb-form button:hover { background: var(--green-dark); }
+.bb-privacy { font-size: .8rem; color: var(--muted); padding: 0 .8rem .6rem; margin: 0; background: var(--card); }
+.bb-sr {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---- Bijli Baji intro (homepage, near checker) ---- */
+.bb-intro {
+  display: flex; align-items: center; gap: .9rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--green);
+  border-radius: var(--radius);
+  padding: .9rem 1rem;
+  margin: 1.25rem 0;
+}
+.bb-intro img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 2px solid var(--green); flex: 0 0 auto; }
+.bb-intro p { margin: 0; }
+.bb-open-btn {
+  background: var(--green); color: #fff;
+  border: 0; border-radius: 8px;
+  padding: .45rem .9rem;
+  font-size: .95rem; font-weight: 700;
+  cursor: pointer; margin-top: .4rem;
+}
+.bb-open-btn:hover { background: var(--green-dark); }

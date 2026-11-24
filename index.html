@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LESCO Bill Check Online — View &amp; Print Your Lahore Electricity Bill</title>
+<meta name="description" content="Check your LESCO bill online in under a minute. Enter your 14-digit reference number, pick Urban or Rural, and view your bill on the official PITC portal — no login, no fee. Covers Lahore, Okara, Sheikhupura, Nankana Sahib and Kasur.">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I check my LESCO bill online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your 14-digit reference number and select Urban (U) or Rural (R) in the checker box above, then press Check Bill. The official PITC portal (bill.pitc.com.pk/lescobill) opens in a new tab, where you enter the same details to view and print your bill. There is no login and no fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my LESCO reference number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your reference number is printed at the top-left of your paper bill, above the barcode, labelled \"Ref No\". It is 14 digits long: 2 digits for the batch, 5 digits for the sub-division, and 7 digits for the reference itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does U and R mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "U stands for Urban and R stands for Rural. Pick the one shown next to your reference number on your bill. Choosing the wrong one can show the wrong record or no record at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I check my LESCO bill by Customer ID?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Your 10-digit Customer ID works on both the PITC portal (bill.pitc.com.pk/lescobill) and the LESCO website (lesco.gov.pk, Customer Bill page). If you do not have your reference number, use the Customer ID instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When does my LESCO bill appear online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your bill usually appears online 24 to 48 hours after it is generated. Bills are generally generated roughly between the 1st and 10th of the month. If it is not showing yet, wait a day and check again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do if my bill is not showing or looks wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First re-check the 14 digits and the U/R selection — a single wrong digit gives a \"record not found\" result. If the details are correct and the bill is still not showing, or the amount looks wrong, call the LESCO helpline on 118, or file a complaint through CCMS+ at ccms.pitc.com.pk/complaint. See our guides on a bill not showing and on wrong-bill complaints for the full steps."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="index.html">LESCO Bill Check</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="how-to-check-lesco-bill-online.html">How to Check</a>
+      <a href="lesco-reference-number.html">Reference Number</a>
+      <a href="how-to-pay-lesco-bill-online.html">Pay Bill</a>
+      <a href="understanding-your-lesco-bill.html">Understand Your Bill</a>
+      <a href="lesco-bill-not-showing.html">Bill Not Showing</a>
+      <a href="lesco-wrong-bill-complaint.html">Wrong Bill</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h1>LESCO Bill Check Online</h1>
+  <p class="lead">Check your Lahore electricity bill online in under a minute — no login, no fee, no app to install. This site serves LESCO consumers in Lahore, Okara, Sheikhupura, Nankana Sahib and Kasur (around 5 million consumers).</p>
+
+  <p><span class="stamp">Last checked: 24 Nov 2026</span></p>
+
+  <ul class="badges" aria-label="Why trust this guide">
+    <li>✓ Official PITC portal link</li>
+    <li>✓ No login, no fee</li>
+    <li>✓ Your number is never stored</li>
+    <li>✓ All 5 LESCO districts</li>
+  </ul>
+
+  <!-- Checker box -->
+  <section class="checker-box" aria-labelledby="checker-heading">
+    <h2 id="checker-heading">Check Your LESCO Bill</h2>
+    <p>Enter your 14-digit reference number from your paper bill, pick Urban or Rural, and press <strong>Check Bill</strong>.</p>
+
+    <form id="bill-check-form" novalidate>
+      <div class="checker-row">
+        <div class="field-ref">
+          <label for="ref-number">Reference number (14 digits) or Customer ID (10 digits)</label>
+          <input type="tel" id="ref-number" name="ref-number" inputmode="numeric" autocomplete="off"
+                 placeholder="e.g. 01 12345 1234567" maxlength="19" aria-describedby="ref-hint">
+          <p class="ref-hint" id="ref-hint">2 digits batch + 5 digits sub-division + 7 digits reference. Spaces are fine — we remove them before checking the format. Your 10-digit Customer ID works on the portal too.</p>
+        </div>
+        <div class="field-ur">
+          <label for="ur-select">Area</label>
+          <select id="ur-select" name="ur-select">
+            <option value="U" selected>U — Urban</option>
+            <option value="R">R — Rural</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="digit-counter" id="digit-counter">0 / 14 digits</p>
+
+      <p style="margin-top:1rem;"><button class="btn btn-block" type="submit">Check Bill</button></p>
+
+      <p class="checker-error" id="checker-error" role="alert"></p>
+
+      <p class="checker-note">This site does not fetch your bill itself. When you press Check Bill, the official PITC portal (bill.pitc.com.pk/lescobill) opens in a new tab, where you enter the same details to view your bill. Your reference number is never stored, sent, or logged by this site — it stays in your browser.</p>
+      <p class="checker-note">No reference number? <a href="lesco-bill-without-reference-number.html">How to find your bill without a reference number</a>.</p>
+    </form>
+  </section>
+
+  <div class="bb-intro">
+    <img src="assets/bijli-baji-mascot.webp" alt="Bijli Baji — LESCO Bill Dost">
+    <p><strong>Bijli Baji se poochein</strong> — bill check karne mein madad chahiye? Bijli Baji aapki LESCO Bill Dost hain — reference number, payment aur shikayat ke sawalon ka jawab deti hain. Neeche right corner mein chat kholein, ya yahan dabayein:<br><button type="button" class="bb-open-btn" data-bb-open>Bijli Baji se chat karein</button></p>
+  </div>
+
+  <section class="calc" aria-labelledby="calc-heading">
+    <h3 id="calc-heading">Units Calculator — Estimate Your Slab</h3>
+    <p>Move the slider to your month's units. This estimates only whether you fall in the protected or unprotected slab — it does not fetch your bill and it does not calculate your bill amount.</p>
+    <label for="units-slider">Units used this month: <strong id="units-value">100</strong></label>
+    <input type="range" id="units-slider" min="0" max="1000" step="10" value="100">
+    <p class="calc-output" id="calc-output">Protected slab — 200 units or less</p>
+    <p class="calc-note" id="calc-note">Nearest EXAMPLE case: 100 units — Protected slab. Estimate only — from the labelled EXAMPLE cases below, not your real bill. Your real amount depends on your slab, FPA and taxes — check the official portal.</p>
+  </section>
+
+  <p class="trust-line">Free to check &bull; No login or account needed &bull; Official portal only: <a href="https://bill.pitc.com.pk/lescobill" target="_blank" rel="noopener">bill.pitc.com.pk/lescobill</a> &bull; LESCO helpline: <strong>118</strong></p>
+
+  <div class="tip">
+    <p><strong>Prefer the LESCO website?</strong> You can also check on <a href="https://www.lesco.gov.pk" target="_blank" rel="noopener">lesco.gov.pk</a> — open the “Customer Bill” page and enter the Batch No., Sub Division and Reference No. in the three boxes. Both routes show the same bill. See the full comparison in <a href="how-to-check-lesco-bill-online.html">How to Check LESCO Bill Online</a>.</p>
+  </div>
+
+  <h2>Check your bill in 5 steps</h2>
+  <ol class="steps">
+    <li><strong>Find your reference number</strong> — top-left of your paper bill, above the barcode, labelled “Ref No”. It is 14 digits.</li>
+    <li><strong>Note whether you are Urban (U) or Rural (R)</strong> — it is shown next to the reference number on the bill.</li>
+    <li><strong>Enter the number and pick U or R</strong> in the checker box above, then press Check Bill.</li>
+    <li><strong>The official PITC portal opens in a new tab</strong> — enter the same reference number and U/R there to view your bill.</li>
+    <li><strong>View, download or print</strong> your bill from the portal. The printed copy is accepted for payment at banks and other payment points.</li>
+  </ol>
+
+  <h2>Where to find your reference number</h2>
+  <p>Look at the <strong>top-left of your paper bill, above the barcode</strong>, where it is labelled <strong>“Ref No”</strong>. The number has three parts:</p>
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Digits</th><th>What it is</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Batch</td><td>2</td><td>First 2 digits</td></tr>
+      <tr><td>Sub-division</td><td>5</td><td>Next 5 digits</td></tr>
+      <tr><td>Reference</td><td>7</td><td>Last 7 digits</td></tr>
+    </tbody>
+  </table>
+  <p>Example structure: <code>01 12345 1234567</code> (illustration only — use your own number). You can also check with your <strong>10-digit Customer ID</strong>, which works on both the PITC portal and lesco.gov.pk. Your meter number alone will not work. Full detail: <a href="lesco-reference-number.html">LESCO Reference Number: Where to Find It</a>.</p>
+
+  <h2>LESCO Bill Check Sites Compared — Why This Guide Is Different</h2>
+  <p>Many sites rank for LESCO bill checks. Here is an honest comparison, checked against the live pages on 24 Nov 2026:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Site</th><th>What it offers</th><th>What to watch for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>abnamro.com.pk</strong></td><td>A deep LESCO bill guide, one per DISCO</td><td>Guide only — no checker; never mentions the direct PITC page, the U/R selector, or the Customer ID route</td></tr>
+        <tr><td><strong>dailycapital.pk</strong></td><td>A utility-bill guide cluster (LESCO, Easypaisa, JazzCash)</td><td>Guide only — no checker; pages last updated about 93 days ago</td></tr>
+        <tr><td><strong>billhub.pk/lesco</strong></td><td>Checker box + one long guide</td><td>Claims it “fetches live” — it is a redirect, like every checker; rates shown with no date and no NEPRA citation; FAQ is only 3 questions</td></tr>
+        <tr><td><strong>billhelp.pk/lesco-bill</strong></td><td>The strongest competitor — checker + video + bill calculator + alerts + 10+ depth guides + dated NEPRA updates</td><td>The site to catch: deepest and freshest of the four, updated 10 days ago</td></tr>
+        <tr class="ours"><td><strong>This site</strong></td><td>Correct portal link, U/R + Customer ID routes, freshness stamp, no data stored, 5 district pages</td><td>No video guide yet; the calculator estimates your slab only — it never claims to fetch your bill</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How to pay your LESCO bill</h2>
+  <ul class="pay-strip" aria-label="Payment methods">
+    <li>JazzCash</li>
+    <li>Easypaisa</li>
+    <li>1LINK bank apps</li>
+    <li>ATM</li>
+    <li>Bank counter</li>
+    <li>Post office</li>
+  </ul>
+  <p>Pay on or before the due date printed on the bill. After the due date, a <strong>10% late payment surcharge</strong> applies. Keep your payment receipt safe. Full payment guide: <a href="how-to-pay-lesco-bill-online.html">How to Pay LESCO Bill Online</a>.</p>
+
+  <div class="callout">
+    <p><strong>Bill higher than usual?</strong> A sudden jump is usually a higher meter reading, a move into a higher slab, or an adjustment such as FPA on the bill — not always a mistake. Before you complain, check what each line on the bill actually means: <a href="understanding-your-lesco-bill.html">Understanding Your LESCO Bill</a>. If the reading itself looks wrong, see <a href="lesco-wrong-bill-complaint.html">LESCO Wrong Bill / Overbilling Complaint</a>.</p>
+  </div>
+
+  <h2>When will my bill appear online?</h2>
+  <p>Bills are generally generated roughly between the 1st and 10th of the month, and the bill usually appears online <strong>24 to 48 hours after generation</strong>. If you check too early, the portal may show no record — wait a day and try again. If it is still not showing after that, see <a href="lesco-bill-not-showing.html">LESCO Bill Not Showing / Record Not Found</a>.</p>
+
+  <h2>Protected vs unprotected consumers</h2>
+  <p>Whether you are charged the protected or unprotected rate depends on how many units you used in the previous months — it can change your bill a lot. Read the full rule before you assume a slab is wrong: <a href="lesco-protected-vs-unprotected.html">LESCO Protected vs Unprotected Consumers</a>.</p>
+
+  <h2>Which Districts Does LESCO Cover?</h2>
+  <p>LESCO supplies electricity across 5 districts in Punjab — around 5 million consumers. If your bill says LESCO, this checker is the right one for you:</p>
+  <ul class="districts">
+    <li><a href="lesco-bill-check-lahore.html">Lahore</a></li>
+    <li><a href="lesco-bill-check-okara.html">Okara</a></li>
+    <li><a href="lesco-bill-check-sheikhupura.html">Sheikhupura</a></li>
+    <li><a href="lesco-bill-check-nankana-sahib.html">Nankana Sahib</a></li>
+    <li><a href="lesco-bill-check-kasur.html">Kasur</a></li>
+  </ul>
+  <p class="checker-note">The check works the same way in every LESCO district — there is no separate portal per district.</p>
+
+  <h2>Example Bills — What 100, 200 and 300 Units Can Look Like</h2>
+  <p><span class="example-label">EXAMPLE — illustrative, not a real bill</span></p>
+  <p>These three cases are labelled examples, not real bills. They show why the bill jumps so sharply once you cross 200 units and lose protected status. No rupee amounts are given here, because exact rates change with NEPRA tariffs, FPA and taxes — always check your real amount on the official portal.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Units used</th><th>Slab status</th><th>What it shows</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>100 units</strong></td><td>Protected slab</td><td>Low usage, lower per-unit rate — the smallest bill of the three</td></tr>
+        <tr><td><strong>200 units</strong></td><td>Protected slab — at the limit</td><td>Still protected at 200 units — but more than 200 in even one month can change your status</td></tr>
+        <tr><td><strong>300 units</strong></td><td>Unprotected slab</td><td>The bill jumps sharply once protected status is lost, even though usage rose only by half</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="checker-note">EXAMPLE cases only — these are not real bills and not a rate card. Exact per-unit rates change with NEPRA tariffs, FPA and taxes.</p>
+
+  <h2>Bill Symptom Guide — Why Is My LESCO Bill High?</h2>
+  <p>Match your bill's symptom to the likely cause, then do the fix. These are the verified causes — nothing here is guessed.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Symptom</th><th>Likely cause</th><th>What to do</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Bill higher than last month</td><td>More units used, or a move to a higher slab</td><td>Compare the units on this bill with last month's; check the meter reading on the bill against your meter</td></tr>
+        <tr><td>Bill jumped sharply after 200 units</td><td>Protected status lost — over 200 units in one of the last 6 months</td><td>Check your last 6 months' usage; see <a href="lesco-protected-vs-unprotected.html">protected vs unprotected</a></td></tr>
+        <tr><td>FPA charge on the bill</td><td>Fuel price adjustment added to the bill</td><td>FPA is a standard line on the bill — read it in the <a href="understanding-your-lesco-bill.html">charges guide</a></td></tr>
+        <tr><td>Wrong tariff category on the bill</td><td>Home connection billed as commercial, or a higher category than it should be</td><td>Take your bill and CNIC to your SDO office and ask for the category to be corrected in writing</td></tr>
+        <tr><td>Meter reading on the bill does not match your meter</td><td>Wrong meter reading recorded</td><td>Take a dated photo of your meter and call 118</td></tr>
+        <tr><td>No bill arrived</td><td>Paper bill lost or late — the due date does not move</td><td>Check your bill online on the official portal and pay before the due date; see <a href="lesco-bill-not-showing.html">bill not showing</a></td></tr>
+        <tr><td>Portal says “no record”</td><td>Wrong U/R letter, or the reference number typed wrong</td><td>Check the U/R letter on your bill and re-enter the 14-digit number exactly</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Your LESCO Bill Cycle — Month by Month</h2>
+  <p>LESCO bills run on a monthly cycle. Every month follows the same four steps — the dates are printed on your bill, and your reference number never changes, so the check is the same every month.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Step</th><th>What happens</th><th>What you do</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1. Meter reading</strong></td><td>Your meter is read for the month</td><td>Note your own reading — a dated photo helps if the bill reading is wrong</td></tr>
+        <tr><td><strong>2. Bill issued</strong></td><td>Your monthly bill is prepared — generally generated roughly between the 1st and 10th of the month</td><td>If the paper bill has not arrived, check online on the portal — the bill usually appears 24 to 48 hours after generation</td></tr>
+        <tr><td><strong>3. Due date</strong></td><td>The last date to pay without a surcharge, printed on the bill</td><td>Pay before this date — a late paper bill does not move the due date</td></tr>
+        <tr><td><strong>4. Pay</strong></td><td>Pay at a bank, ATM, JazzCash, Easypaisa or post office</td><td>Keep your receipt safe — after the due date a 10% late payment surcharge applies</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="checker-note">Exact reading and due dates differ by area and month — they are printed on your own bill. This site does not publish fixed dates, because they change every cycle.</p>
+
+  <h2>Need help?</h2>
+  <p><strong>LESCO helpline: 118.</strong> For a formal complaint, use CCMS+ at <a href="https://ccms.pitc.com.pk/complaint" target="_blank" rel="noopener">ccms.pitc.com.pk/complaint</a> or email <a href="mailto:ccms@pitc.com.pk">ccms@pitc.com.pk</a>. SMS short code 8118 exists — confirm the format on lesco.gov.pk before using it.</p>
+  <!-- UNVERIFIED: SMS 8118 format — three conflicting versions exist in sources; only the existence of the short code is stated above, per the analysis file. -->
+  <!-- UNVERIFIED: printed duplicate-bill acceptance at banks/payment points — widely stated by competitors but not verified against an official LESCO/PITC source; confirm before relying on it in depth pages. -->
+
+  <h2>Electrician chahiye?</h2>
+  <p>Meter ka masla, ghar ki wiring, ya bijli ke load ki pareshani — pehle yeh check karein ke kaam LESCO ka hai ya private electrician ka. Meter aur meter tak ki line LESCO ki zimmedari hoti hai; meter ke baad ghar ki andar ki wiring aapki zimmedari hoti hai. Safety tips, pehle kya check karein, aur electrician kaise dhoondein: <a href="lesco-electrician-in-lahore.html">Electrician in Lahore</a>.</p>
+  <p class="checker-note">Is page par kisi electrician ka naam, number ya price nahi diya gaya — listings jald aa rahi hain.</p>
+
+  <h2>LESCO Bill Updates — November 2026</h2>
+  <p>These are the latest charges on November 2026 LESCO bills, with their official references. Check your own bill's lines to confirm what applies to you:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Charge</th><th>Rate</th><th>What it is</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>FCA — Fuel Cost Adjustment</strong></td><td><strong>Rs 2.3673 per unit</strong></td><td>NEPRA decision of 6 November 2026 — the fuel cost adjustment for September 2026 fuel, applied on November 2026 bills</td></tr>
+        <tr><td><strong>QTA — Quarterly Tariff Adjustment</strong></td><td><strong>Rs 0.5194 per unit</strong></td><td>S.R.O. 1501 — the quarterly tariff adjustment, applied on September to November 2026 bills</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>What is FCA?</strong> FCA is a monthly fuel-cost adjustment, not a permanent tariff rise. It passes the change in fuel cost through to your bill — so it can go up or down from month to month as fuel prices change. The rate above is for November 2026 bills only; next month's FCA will be different.</p>
+  <p><strong>How to check it on your bill:</strong> look for the <strong>“F.P.A.”</strong> line on your paper bill. It shows the per-unit FCA rate and the total FCA amount for your units. Your units × the FCA rate = the FCA amount on your bill. If the F.P.A. line is missing or the rate does not match, read your bill line by line in <a href="understanding-your-lesco-bill.html">Understanding Your LESCO Bill</a>, or call the helpline on 118.</p>
+  <p><span class="stamp">Last checked: 24 Nov 2026</span></p>
+
+  <h2>Bill reminder — kabhi due date na bhoolein</h2>
+  <p>Har mahine bill check karna yaad rakhna mushkil hota hai — aur due date guzar jaye to 10% late payment surcharge lagta hai. Phone par monthly reminder lagane ka tareeqa aur auto-debit ka automatic option: <a href="lesco-bill-reminder.html">LESCO Bill Reminder</a>.</p>
+  <p class="checker-note">Ye site aapko koi alert ya reminder nahi bhejti aur kuch save nahi karti — reminder aapke apne phone par lagta hai.</p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details>
+      <summary>How do I check my LESCO bill online?</summary>
+      <p>Enter your 14-digit reference number and select Urban (U) or Rural (R) in the checker box above, then press Check Bill. The official PITC portal (bill.pitc.com.pk/lescobill) opens in a new tab, where you enter the same details to view and print your bill. There is no login and no fee.</p>
+    </details>
+    <details>
+      <summary>Where is my LESCO reference number?</summary>
+      <p>At the top-left of your paper bill, above the barcode, labelled “Ref No”. It is 14 digits: 2 for the batch, 5 for the sub-division, and 7 for the reference itself. See <a href="lesco-reference-number.html">where to find it</a> for the full layout.</p>
+    </details>
+    <details>
+      <summary>What does U and R mean?</summary>
+      <p>U stands for Urban and R stands for Rural. Pick the one shown next to your reference number on your bill. Choosing the wrong one can show the wrong record or no record at all.</p>
+    </details>
+    <details>
+      <summary>Can I check my LESCO bill by Customer ID?</summary>
+      <p>Yes. Your 10-digit Customer ID works on both the PITC portal and the LESCO website (lesco.gov.pk, Customer Bill page). Use it if you do not have your reference number handy.</p>
+    </details>
+    <details>
+      <summary>When does my LESCO bill appear online?</summary>
+      <p>Usually 24 to 48 hours after it is generated. Bills are generally generated roughly between the 1st and 10th of the month, so if it is not showing yet, wait a day and check again.</p>
+    </details>
+    <details>
+      <summary>What should I do if my bill is not showing or looks wrong?</summary>
+      <p>First re-check the 14 digits and the U/R selection — one wrong digit gives a “record not found” result. If the details are correct, call the LESCO helpline on 118, or file a complaint through CCMS+ at ccms.pitc.com.pk/complaint. See <a href="lesco-bill-not-showing.html">Bill Not Showing</a> and <a href="lesco-wrong-bill-complaint.html">Wrong Bill Complaint</a> for the full steps.</p>
+    </details>
+  </div>
+
+  <h2>More LESCO bill guides</h2>
+  <ul class="related-links">
+    <li><a href="how-to-check-lesco-bill-online.html">How to Check LESCO Bill Online</a> — PITC vs lesco.gov.pk, step by step, download and print.</li>
+    <li><a href="lesco-reference-number.html">LESCO Reference Number: Where to Find It</a> — 2+5+7 structure, U vs R, Customer ID vs reference vs meter number.</li>
+    <li><a href="how-to-pay-lesco-bill-online.html">How to Pay LESCO Bill Online</a> — JazzCash, Easypaisa, 1LINK apps, ATM, counter, post office, 10% late surcharge.</li>
+    <li><a href="understanding-your-lesco-bill.html">Understanding Your LESCO Bill</a> — readings, slabs, FPA, taxes and arrears, line by line.</li>
+    <li><a href="lesco-protected-vs-unprotected.html">LESCO Protected vs Unprotected Consumers</a> — the protected rule and what it does to your rate.</li>
+    <li><a href="lesco-bill-not-showing.html">LESCO Bill Not Showing / Record Not Found</a> — why it happens and the fix for each cause.</li>
+    <li><a href="lesco-wrong-bill-complaint.html">LESCO Wrong Bill / Overbilling Complaint</a> — reading errors, wrong tariff, faulty meter, and how to complain.</li>
+    <li><a href="lesco-bill-without-reference-number.html">LESCO Bill Without Reference Number</a> — honest recovery routes; there is no CNIC lookup on the portal.</li>
+    <li><a href="lesco-electrician-in-lahore.html">Electrician in Lahore</a> — when you need an electrician, LESCO's work vs a private electrician's work, safety tips, and how to find one.</li>
+    <li><a href="lesco-bill-reminder.html">LESCO Bill Reminder</a> — set a monthly phone reminder, auto-debit, and the 10% late payment surcharge warning.</li>
+    <li><a href="lesco-peak-hours.html">LESCO Peak Hours 2026</a> — the 4 evening peak hours by season, who pays a peak rate, and how to check your own bill.</li>
+    <li><a href="lesco-bill-paid-status.html">How to Check If Your LESCO Bill Is Paid</a> — the next bill's arrears line, your payment receipt, and what to do if a paid bill still shows unpaid.</li>
+    <li><a href="lesco-previous-bill.html">LESCO Previous Bill</a> — how to see old bills: save each month's PDF, and what the arrears line tells you.</li>
+    <li><a href="lesco-name-change.html">LESCO Bill Name Change</a> — an office-based process at your SDO or Customer Service Centre; what to take with you.</li>
+    <li><a href="lesco-bill-check-by-cnic.html">LESCO Bill Check by CNIC</a> — there is no official CNIC search; the portal needs your reference number or Customer ID.</li>
+    <li><a href="lesco-bill-check-lahore.html">LESCO Bill Check Lahore</a> — check your bill in Lahore district.</li>
+    <li><a href="lesco-bill-check-okara.html">LESCO Bill Check Okara</a> — check your bill in Okara district.</li>
+    <li><a href="lesco-bill-check-sheikhupura.html">LESCO Bill Check Sheikhupura</a> — check your bill in Sheikhupura district.</li>
+    <li><a href="lesco-bill-check-nankana-sahib.html">LESCO Bill Check Nankana Sahib</a> — check your bill in Nankana Sahib district.</li>
+    <li><a href="lesco-bill-check-kasur.html">LESCO Bill Check Kasur</a> — check your bill in Kasur district.</li>
+  </ul>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>LESCO Bill Check</strong> — an independent guide. This site is not affiliated with LESCO, PITC, WAPDA or the Government of Pakistan. Bills are viewed only on the official portals: <a href="https://bill.pitc.com.pk/lescobill" target="_blank" rel="noopener">bill.pitc.com.pk/lescobill</a> and <a href="https://www.lesco.gov.pk" target="_blank" rel="noopener">lesco.gov.pk</a>. This site never asks for your CNIC, never stores your reference number, and never charges a fee.</p>
+    <p>Helpline: 118 &bull; Complaints: <a href="https://ccms.pitc.com.pk/complaint" target="_blank" rel="noopener">ccms.pitc.com.pk/complaint</a> &bull; <a href="mailto:ccms@pitc.com.pk">ccms@pitc.com.pk</a></p>
+    <p><span class="stamp">Last checked: 24 Nov 2026</span></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('bill-check-form');
+  var input = document.getElementById('ref-number');
+  var errorBox = document.getElementById('checker-error');
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.classList.add('show');
+    input.focus();
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorBox.classList.remove('show');
+    // Strip spaces and dashes the user may have typed; keep digits only.
+    var digits = input.value.replace(/\D/g, '');
+    if (digits.length === 0) {
+      showError('Please enter your 14-digit reference number from your bill.');
+      return;
+    }
+    if (digits.length === 14) {
+      // Format is valid. We do NOT store, send, or log the number anywhere.
+      // The actual bill check happens on the official PITC portal, in a new tab.
+      window.open('https://bill.pitc.com.pk/lescobill', '_blank', 'noopener');
+      return;
+    }
+    if (digits.length === 10) {
+      // 10-digit Customer ID: the portal accepts it instead of the
+      // reference number, and the U/R selector does not apply.
+      window.open('https://bill.pitc.com.pk/lescobill', '_blank', 'noopener');
+      return;
+    }
+    showError('That number has ' + digits.length + ' digits. Your LESCO reference number is exactly 14 digits: 2 for the batch, 5 for the sub-division, and 7 for the reference — or your 10-digit Customer ID. Please check it on your bill (top-left, above the barcode, labelled "Ref No").');
+  });
+
+  // Keep the input tidy as the user types (digits, spaces and dashes only).
+  input.addEventListener('input', function () {
+    input.value = input.value.replace(/[^\d\s-]/g, '');
+  });
+
+  // Live digit counter on the reference input
+  var counter = document.getElementById('digit-counter');
+  if (counter) {
+    input.addEventListener('input', function () {
+      var n = input.value.replace(/[^0-9]/g, '').length;
+      if (n === 0) {
+        counter.textContent = '0 / 14 digits';
+      } else if (n === 10) {
+        counter.textContent = '10 digits — Customer ID ✓';
+      } else if (n === 14) {
+        counter.textContent = '14 / 14 digits ✓ — ready to check';
+      } else if (n > 14) {
+        counter.textContent = n + ' digits — too many, check your number';
+      } else {
+        counter.textContent = n + ' / 14 digits';
+      }
+    });
+  }
+
+  // Units calculator slider — estimates slab / protected status only.
+  // No rupee figures: the EXAMPLE cases below carry no rates, by design.
+  var slider = document.getElementById('units-slider');
+  if (slider) {
+    var unitsValue = document.getElementById('units-value');
+    var calcOutput = document.getElementById('calc-output');
+    var calcNote = document.getElementById('calc-note');
+    slider.addEventListener('input', function () {
+      var units = parseInt(slider.value, 10);
+      unitsValue.textContent = units;
+      if (units <= 200) {
+        calcOutput.textContent = 'Protected slab — 200 units or less';
+      } else {
+        calcOutput.textContent = 'Unprotected slab — over 200 units';
+      }
+      var example;
+      if (units <= 150) { example = '100 units — Protected slab'; }
+      else if (units <= 250) { example = '200 units — Protected slab, at the limit'; }
+      else { example = '300 units — Unprotected slab'; }
+      calcNote.textContent = 'Nearest EXAMPLE case: ' + example + '. Estimate only — from the labelled EXAMPLE cases below, not your real bill. Your real amount depends on your slab, FPA and taxes — check the official portal.';
+    });
+  }
+})();
+</script>
+
+
+<!-- Bijli Baji chatbot widget -->
+<div class="bb-widget" id="bb-widget">
+  <button class="bb-button" id="bb-button" type="button" aria-label="Bijli Baji se poochein" aria-expanded="false">
+    <img src="assets/bijli-baji-mascot.webp" alt="Bijli Baji — LESCO Bill Dost">
+  </button>
+  <div class="bb-panel" id="bb-panel" hidden role="dialog" aria-label="Bijli Baji — LESCO Bill Dost">
+    <div class="bb-header">
+      <img src="assets/bijli-baji-mascot.webp" alt="">
+      <div>
+        <strong>Bijli Baji</strong>
+        <span>LESCO Bill Dost</span>
+      </div>
+      <button class="bb-close" id="bb-close" type="button" aria-label="Band karein">×</button>
+    </div>
+    <div class="bb-messages" id="bb-messages" aria-live="polite"></div>
+    <div class="bb-quick" id="bb-quick"></div>
+    <form class="bb-form" id="bb-form">
+      <label class="bb-sr" for="bb-input">Apna sawaal likhein</label>
+      <input type="text" id="bb-input" placeholder="Apna sawaal likhein…" autocomplete="off">
+      <button type="submit">Bhejein</button>
+    </form>
+    <p class="bb-privacy">Bijli Baji aapka number, CNIC ya phone number kabhi nahi mangti aur kuch save nahi karti.</p>
+  </div>
+</div>
+<script src="assets/chatbot.js"></script>
+
+</body>
+</html>

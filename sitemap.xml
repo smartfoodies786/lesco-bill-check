@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- REPLACE example.com with the bought domain before submitting to Search Console -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.com/index.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/how-to-check-lesco-bill-online.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-reference-number.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/how-to-pay-lesco-bill-online.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/understanding-your-lesco-bill.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-protected-vs-unprotected.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-not-showing.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-wrong-bill-complaint.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-without-reference-number.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-check-lahore.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-check-okara.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-check-sheikhupura.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-check-nankana-sahib.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-check-kasur.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-electrician-in-lahore.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-reminder.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-peak-hours.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-paid-status.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-previous-bill.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-name-change.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://example.com/lesco-bill-check-by-cnic.html</loc><lastmod>2026-11-24</lastmod></url>
+</urlset>
