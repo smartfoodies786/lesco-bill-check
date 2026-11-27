@@ -444,3 +444,6 @@ tr.ours td { background: var(--green-light); }
   cursor: pointer; margin-top: .4rem;
 }
 .bb-open-btn:hover { background: var(--green-dark); }
+
+/* ---- Checker submit row (was an inline style) ---- */
+.checker-submit { margin-top: 1rem; }
